@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Post } from './posts/entities/post.entity';
 import { PostsModule } from './posts/posts.module';
 
 @Module({
@@ -26,6 +27,7 @@ import { PostsModule } from './posts/posts.module';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_DATABASE'),
+          entities: [Post],
         }
       }
     }),
